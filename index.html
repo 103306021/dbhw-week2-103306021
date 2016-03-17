@@ -2,40 +2,45 @@
 <html>
   <head>
     <meta charset="utf-8">
-		<title>Timer</title>
+    <title>Timer</title>
+    <link rel=stylesheet type="text/css" href="main.css">
   </head>
   <style>
-.timer-wrapper{
-  position:absolute;
-  top:0;
+  .h{
+position: absolute;
+color: #fff;
+  }
+.timer-wrapper {
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000000;
-  color: #ffffff;
+  background: url("bg2.jpg") center center;
+  color: #fff;
 }
 
-.timer-wrapper > ul{
+.timer-wrapper > ul {
   height: 100%;
   width: 100%;
   display: block;
   margin: 0 auto;
 }
 
-.timer-wrapper > ul > li{
+.timer-wrapper > ul > li {
   position: absolute;
   top: 50%;
   left: 50%;
   display: block;
   background: transparent;
-  border: 10px solid rbga(23,246,251,1.0);
+  border: 10px solid rgba(49, 121, 156, 1.0);
   border-left-color: transparent;
   border-right-color: transparent;
   border-radius: 500px;
-  transition: all 0.5 ease;
+  transition: all 0.5s ease;
 }
 
-.timer-wrapper > ul > li:last-child{
+.timer-wrapper > ul > li:last-child {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -45,17 +50,15 @@
   margin-left: -110px;
   margin-top: -110px;
   padding: 70px 0px 30px;
-  background-color: rgba(8, 8, 8, 1.0);
-  border: 10px solid rgba(8, 8, 8, 1.0);
   border-radius: 200px;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
-  box-shadow: 0px 0px 30px rgba(23, 246, 251, 0.5);
+  box-shadow: 0px 0px 30px rgba(126, 206, 244, 0.5);
   animation: pulseShadow 5s infinite linear;
 }
 
-.timer-wrapper > ul > li:last-child:after{
-   content: '';
-  border: 3px dotted rgba(22, 42, 43, 1.0);
+.timer-wrapper > ul > li:last-child::after {
+  content: '';
+  border: 3px dotted rgba(126, 206, 244, 1.0);
   border-radius: 200px;
   width: 200px;
   height: 200px;
@@ -75,7 +78,7 @@
   height: 330px;
   border-width: 5px;
   border-style: solid;
-  box-shadow: inset 0px 0px 25px rgba(23, 246, 251, 1.0);
+  box-shadow: inset 0px 0px 25px rgba(126, 206, 244, 1.0);
   animation: spinBG3 8s infinite linear;
 }
 
@@ -86,7 +89,7 @@
   width: 296px;
   height: 296px;
   border-width: 2px;
-  box-shadow: inset 0px 0px 25px rgba(23, 246, 251, .25);
+  box-shadow: inset 0px 0px 25px rgba(49, 121, 156, 1.0);
   animation: spinBG 12s infinite linear;
 }
 
@@ -98,7 +101,7 @@
   height: 270px;
   border-width: 2px;
   border-style: dotted;
-  box-shadow: 0px 0px 20px rgba(23, 246, 251, .5);
+  box-shadow: 0px 0px 20px rgba(49, 121, 156, 0.5);
   animation: spinBG2 2s infinite linear;
 }
 
@@ -117,32 +120,69 @@
   top: 50%;
   left: 50%;
   z-index: 200;
-  margin-left: -9%;
-  margin-top: -7%;
+  margin-left: -5%;
+  margin-top: -5%;
   font-size: 120px;
+  font-family: Stencil Std, serif;
+}
+
+#hline {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  z-index: 200;
+  margin-left: -5%;
+  margin-top: -5%;
+  color: #fff;
+  font-size: 70px;
+  font-family: serif;
+  -webkit-animation-name: fadeIn; 
+  -webkit-animation-duration: 6s; 
+  -webkit-animation-iteration-count: 1000; /*count*/
+  -webkit-animation-delay: 0s; /*delay time*/
+}
+
+
+/*-------------------------------------------
+     Animations
+    -------------------------------------------*/
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; /*beginning*/
+  }
+  40% {
+    opacity: 1; 
+  }
+  60% {
+    opacity: 1; 
+  }
+  100% {
+   opacity: 0; /*ending*/
+  }
 }
 
 @keyframes pulseGlow {
   0% {
-    text-shadow: 0px 0px 20px rgba(23, 246, 251, 0.75);
+    text-shadow: 0px 0px 20px rgba(126, 206, 244, 0.75);
   }
   50% {
-    text-shadow: 0px 0px 40px rgba(23, 246, 251, 0.5);
+    text-shadow: 0px 0px 40px rgba(126, 206, 244, 0.5);
   }
   100% {
-    text-shadow: 0px 0px 20px rgba(23, 246, 251, 0.75);
+    text-shadow: 0px 0px 20px rgba(49, 121, 156, 0.75);
   }
 }
 
 @keyframes pulseShadow {
   0% {
-    box-shadow: 0px 0px 30px rgba(23, 246, 251, 0.25);
+    box-shadow: 0px 0px 30px rgba(126, 206, 244, 0.25);
   }
   50% {
-    box-shadow: 0px 0px 30px rgba(23, 246, 251, 0.75);
+    box-shadow: 0px 0px 30px rgba(49, 121, 156, 0.75);
   }
   100% {
-    box-shadow: 0px 0px 30px rgba(23, 246, 251, 0.25);
+    box-shadow: 0px 0px 30px rgba(126, 206, 244, 0.25);
   }
 }
 
@@ -158,22 +198,22 @@
 @keyframes spinBG2 {
   0% {
     transform: rotate(360deg);
-    box-shadow: 0px 0px 1px rgba(23, 246, 251, 0.5);
+    box-shadow: 0px 0px 1px rgba(49, 121, 156, 0.5);
   }
   50% {
     transform: rotate(180deg);
-    box-shadow: 0px 0px 20px rgba(23, 246, 251, 0.5);
+    box-shadow: 0px 0px 20px rgba(126, 206, 244, 0.5);
   }
   100% {
     transform: rotate(0deg);
-    box-shadow: 0px 0px 1px rgba(23, 246, 251, 0.5);
+    box-shadow: 0px 0px 1px rgba(126, 206, 244, 0.5);
   }
 }
 
 @keyframes spinBG3 {
   0% {
     transform: rotate(180deg);
-    box-shadow: 0px 0px 1px rgba(23, 246, 251, 0.1);
+    box-shadow: 0px 0px 1px rgba(49, 121, 156, 0.1);
   }
   50% {
     transform: rotate(0deg);
@@ -185,6 +225,7 @@
   </style>
 
   <body>
+    <h1 id="hline">TIMER</h1>
   <div class="timer-wrapper">
   <span id="num">60</span>
     <ul>
@@ -219,5 +260,6 @@
   }, 1000);
 };
 minus();
+
   </script>
 </html>
